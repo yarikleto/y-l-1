@@ -400,7 +400,7 @@ body {
 
 .lectures-filter__school-title.active+.lectures-filter__school-content,
 .lectures-filter__lector-title.active+.lectures-filter__lector-content {
-  height: auto;
+  height: 200px;
   opacity: 1;
 }
 
@@ -410,6 +410,7 @@ body {
   height: 0;
   opacity: 0;
   transition: all .4s;
+  overflow-y: auto;
 }
 
 .lectures-filter__date-input {
