@@ -464,7 +464,13 @@ body {
   padding-right: 10px;
 }
 
-
+.lectures-filter__date-title {
+  display: block;
+  font-size: 20px;
+  font-weight: bold;
+  padding-bottom: 10px;
+  padding-top: 10px;
+}
 /* NORMAL MOBILE */
 
 @media (min-width: 480px) {
@@ -487,6 +493,9 @@ body {
 }
 
 @media (min-width: 640px) {
+  .lectures-filter__date-title {
+    display: none;
+  }
   .main__lector-photo-wrapper {
     display: inline-block;
     margin-right: 15px;
