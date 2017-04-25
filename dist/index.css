@@ -17,12 +17,6 @@ body {
   flex-direction: column;
   transition: all .4s;
 }
-body.loaded {
-  opacity: 0;
-  overflow: hidden;
-  background: url('./img/icons/progress.gif') no-repeat center center;
-  background-size: 150px 153px;
-}
 
 .content-wrapper {
   flex: 1 0 auto;
