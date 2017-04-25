@@ -11,7 +11,6 @@
 
  * Страница адаптирована для мобильных браузеров
  * Работает в современных версиях Яндекс.Браузера, Google Chrome, Edge, Firefox, Safari и Opera.
- * File contents are saved in the URL so you can share files
  * Добавлен фильтр по дате, лекторам и школам
  * Минифицированы css, js.
  * Сжаты изображения
