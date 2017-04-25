@@ -1,6 +1,6 @@
-document.addEventListener('DOMContentLoaded', function DOMContentLoaded() {
+window.addEventListener('load', function DOMContentLoaded() {
   'use strict';
-
+  document.querySelector('body.loaded').classList.remove('loaded');
 
   // Отображаем просроченные лекции
   const dateNow = Date.now();
