@@ -28,7 +28,7 @@ body {
 .header {
   position: relative;
   height: 210px;
-  background: #fee11b url('./img/content/content-hand.jpg') 50% 100% no-repeat;
+  background: #fee11b url('../img/content/content-hand.jpg') 50% 100% no-repeat;
   background-size: 180px auto;
 }
 
@@ -261,7 +261,7 @@ body {
   height: 50px;
   margin-left: auto;
   margin-right: auto;
-  background: url('./img/icons/icon-youtube.svg') no-repeat center center;
+  background: url('../img/icons/icon-youtube.svg') no-repeat center center;
   transition: transform .3s;
 }
 
@@ -334,7 +334,7 @@ body {
   border-right: 1px solid #d8d8d8;
   padding: 10px 25px 10px 10px;
   display: inline-block;
-  background: #fff url('./img/icons/dark-grey-disclosure-arrow-down.png') no-repeat 83px center;
+  background: #fff url('../img/icons/dark-grey-disclosure-arrow-down.png') no-repeat 83px center;
   cursor: pointer;
 }
 
@@ -343,7 +343,7 @@ body {
 }
 
 .lectures-filter__toggle.active {
-  background-image: url('./img/icons/light-grey-disclosure-arrow-down.png');
+  background-image: url('../img/icons/light-grey-disclosure-arrow-down.png');
   color: #cccccc;
 }
 
