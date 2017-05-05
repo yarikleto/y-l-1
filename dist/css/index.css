@@ -474,6 +474,7 @@ body {
   padding-bottom: 10px;
   padding-top: 10px;
 }
+
 /* NORMAL MOBILE */
 
 @media (min-width: 480px) {
@@ -662,6 +663,9 @@ body {
     font-size: 14px;
     padding-top: 5px;
     padding-bottom: 7px;
+  }
+  .main__lecture-date {
+    font-size: 11px;
   }
 }
 
