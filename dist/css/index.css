@@ -94,16 +94,15 @@ body {
   border-bottom: 1px solid #d8d8d8;
   background-color: #fdfdfd;
 }
-.main__lecture[data-display=on] {
-  display: block;
-}
-.main__lecture[data-display=off] {
+.main__lecture[data-display="false"] {
   display: none;
 }
-.main__lecture:nth-child(odd) {
+
+.main__lecture[data-odd="true"] {
   background-color: #F8F9FF;
 }
 
+/*Два одинаковых класса, чтобы придать "вес" не используя !important */
 .main__lecture--ended.main__lecture--ended {
   background-color: rgba(255, 0, 0, .2);
   border-bottom: 1px solid rgba(255, 0, 0, .15);
