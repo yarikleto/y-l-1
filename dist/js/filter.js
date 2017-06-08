@@ -13,7 +13,7 @@ const filter = (function() {
     cacheDom.filterDateInput = document.querySelector('.lectures-filter__date-input');
     cacheDom.filterSchoolContent = document.querySelector('.lectures-filter__school-content');
     cacheDom.filterLectorContent = document.querySelector('.lectures-filter__lector-content');
-    cacheDom.filterTiggle = document.querySelector('.lectures-filter__toggle');
+    cacheDom.filterToggle = document.querySelector('.lectures-filter__toggle');
     cacheDom.filterSchoolTitle = document.querySelector('.lectures-filter__school-title');
     cacheDom.filterLectorTitle = document.querySelector('.lectures-filter__lector-title');
   }
@@ -40,7 +40,7 @@ const filter = (function() {
       }
     });
 
-    cacheDom.filterTiggle.addEventListener('mousedown', e => {
+    cacheDom.filterToggle.addEventListener('mousedown', e => {
       e.target.classList.toggle('active');
     });
     cacheDom.filterSchoolTitle.addEventListener('mousedown', e => {
@@ -94,11 +94,7 @@ const filter = (function() {
 
       if (isValidLecture === true) {
         countTrueLecture += 1;
-        if (countTrueLecture % 2 !== 0) {
-          lecture.setAttribute('data-odd', true);
-        } else {
-          lecture.setAttribute('data-odd', false);
-        }
+        lecture.setAttribute('data-odd', countTrueLecture % 2 !== 0);
         lecture.setAttribute('data-display', true);
       } else lecture.setAttribute('data-display', false);
     });
