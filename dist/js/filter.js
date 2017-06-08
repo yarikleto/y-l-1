@@ -56,13 +56,7 @@ const filter = (function() {
     /**
      * Функция помечает нечетную лекцию
      */
-
-    if (i % 2 !== 0) {
-      lecture.setAttribute('data-odd', true);
-    } else {
-      lecture.setAttribute('data-odd', false);
-    }
-
+    lecture.setAttribute('data-odd', i % 2 !== 0);
   }
 
   function checkLectureOnOverdue(lecture) {
