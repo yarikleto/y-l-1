@@ -1,9 +1,9 @@
 const filter = (function() {
   'use strict';
   /**
-   * Модуль фильтрации
-   * @return {Object} возвращает обьект с методами
-   * 
+   * Filter module
+   * @return {Object} returns an object with methods
+   *
    */
   const cacheDom = {};
   const filtersStack = [];
@@ -19,10 +19,10 @@ const filter = (function() {
   }
 
   function addEvents() {
-    // Событие изменения поля с датой
+    // Date field change event
     cacheDom.filterDateInput.addEventListener('change', _ => filteredAllLecture());
 
-    // Событие клика по школе в фильтре
+    // Click event on school in filter
     cacheDom.filterSchoolContent.addEventListener('mousedown', e => {
       const targetClassList = e.target.classList;
       if (targetClassList.contains('lectures-filter__school-item')) {
@@ -31,7 +31,7 @@ const filter = (function() {
       };
     });
 
-    // Событие клика по лектору в фильтре
+    // Click event on lecturer in filter
     cacheDom.filterLectorContent.addEventListener('mousedown', e => {
       const targetClassList = e.target.classList;
       if (targetClassList.contains('lectures-filter__lector-item')) {
@@ -51,17 +51,17 @@ const filter = (function() {
     });
   }
 
-  // Функции пререндеринга
+  // Pre-rendering functions
   function checkLectureOnOdd(lecture, i) {
     /**
-     * Функция помечает нечетную лекцию
+     * Marks odd-numbered lectures
      */
     lecture.setAttribute('data-odd', i % 2 !== 0);
   }
 
   function checkLectureOnOverdue(lecture) {
     /**
-     * Функция помечает просроченную лекцию
+     * Marks overdue lectures
      */
 
     const dateNow = Date.now();
@@ -71,14 +71,14 @@ const filter = (function() {
 
   function prerenderingLectures() {
     /**
-     * Функция выполняет предварительную обработку всех лекций
+     * Performs preliminary processing of all lectures
      *
-     * @param {Object} arguments Принимает произвольное количетсво функций для
-     * предварительной обработки лекции
+     * @param {Object} arguments Accepts an arbitrary number of functions for
+     * preliminary lecture processing
      */
     [].forEach.call(cacheDom.lectures, (lecture, i) => {
       [].forEach.call(arguments, renderFn => {
-        if (typeof renderFn !== 'function') throw new Error('В функции пререндеринга один из переданных параметров не является функцией');
+        if (typeof renderFn !== 'function') throw new Error('One of the passed parameters in the pre-rendering function is not a function');
         renderFn(lecture, i);
       });
     });
@@ -86,7 +86,7 @@ const filter = (function() {
 
   function filteredAllLecture() {
     /**
-     * Функция проходит по каждой лекции и к ней применяет все фильтрующие функции
+     * Iterates through each lecture and applies all filter functions to it
      */
     let countTrueLecture = 0;
     [].forEach.call(cacheDom.lectures, lecture => {
@@ -100,36 +100,36 @@ const filter = (function() {
     });
   }
 
-  // Стандартные функции фильтрации
+  // Standard filter functions
 
   function filterDate(lecture) {
     /**
-     * Фильтрует по дате
+     * Filters by date
      *
-     * @param {HTMLElement} принимает одну лекцию. Проверяет, нужно ли ее отображать или нет
-     * @return {Boolean} Возвращает результат проверки
+     * @param {HTMLElement} accepts a single lecture. Checks whether it should be displayed or not
+     * @return {Boolean} Returns the check result
      */
 
-    // Узнаем дату текущей лекции
+    // Get the current lecture date
     const lectureDate = lecture.querySelector('.main__lecture-date');
-    // Приводим выбранную дату в фильтре к нужному виду, чтобы корректно сравнивать ее с датой лекции
+    // Convert the selected filter date to the correct format for comparison with the lecture date
     const correctInputDate = cacheDom.filterDateInput.value.replace(/-/g, '.');
 
-    // Если дата фильтра пуста, либо даты совпадают, то возвращаем положительный результат
+    // If the filter date is empty, or the dates match, return a positive result
     if (correctInputDate === '' || lectureDate.innerText === correctInputDate) return true;
-    // Иначе отрицательный
+    // Otherwise negative
     return false;
   }
 
   function filterSchool(lecture) {
     /**
-     * Фильтрует по школам
+     * Filters by schools
      *
-     * @param {HTMLElement} принимает одну лекцию. Проверяет, нужно ли ее отображать или нет
-     * @return {Boolean} Возвращает результат проверки
+     * @param {HTMLElement} accepts a single lecture. Checks whether it should be displayed or not
+     * @return {Boolean} Returns the check result
      */
     const activeSchoolFilterItems = document.querySelectorAll('.lectures-filter__school-item.active');
-    // Если активных школ в фильтре нет, то пропускать все лекции
+    // If there are no active schools in the filter, pass all lectures
     if (activeSchoolFilterItems.length === 0) return true;
 
     return [].some.call(activeSchoolFilterItems, item => {
@@ -141,13 +141,13 @@ const filter = (function() {
 
   function filterLector(lecture) {
     /**
-     * Фильтрует по лекторам
+     * Filters by lecturers
      *
-     * @param {HTMLElement} принимает одну лекцию. Проверяет, нужно ли ее отображать или нет
-     * @return {Boolean} Возвращает результат проверки
+     * @param {HTMLElement} accepts a single lecture. Checks whether it should be displayed or not
+     * @return {Boolean} Returns the check result
      */
     const activeLectorFilterItems = document.querySelectorAll('.lectures-filter__lector-item.active');
-    // Если активных лекторов в фильтре нет, то пропускать все лекции
+    // If there are no active lecturers in the filter, pass all lectures
     if (activeLectorFilterItems.length === 0) return true;
 
     return [].some.call(activeLectorFilterItems, item => {
@@ -159,9 +159,9 @@ const filter = (function() {
 
   function addFilterFnsToStack() {
     /**
-     * Добавляет все функции фильрации в стэк фильтров
-     * 
-     * @param {Object} arguments Принимает произвольное количетсво функций фильтрации
+     * Adds all filter functions to the filter stack
+     *
+     * @param {Object} arguments Accepts an arbitrary number of filter functions
      */
     [].forEach.call(arguments, filterFn => filtersStack.push(filterFn));
   }

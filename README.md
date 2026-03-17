@@ -1,17 +1,16 @@
-# Расписание лекций проекта «Мобилизация»
+# Lecture Schedule for the "Mobilization" Project
 
 ***
 
-### Посмореть можно по этой [ссылке](http://yarikleto.github.io/y-l-1/).
+### You can view it at this [link](http://yarikleto.github.io/y-l-1/).
 
-Что сделано:
+What's been done:
 
- * Страница адаптирована для мобильных браузеров
- * Работает в современных версиях Яндекс.Браузера, Google Chrome, Edge, Firefox, Safari и Opera.
- * Добавлен фильтр по дате, лекторам и школам (использован паттерн "Модуль")
- * Минифицированы css, js.
- * Сжаты изображения
-
+ * Page is adapted for mobile browsers
+ * Works in modern versions of Yandex.Browser, Google Chrome, Edge, Firefox, Safari, and Opera.
+ * Added filter by date, lecturers, and schools (using the "Module" pattern)
+ * CSS and JS are minified.
+ * Images are compressed
 
 
 

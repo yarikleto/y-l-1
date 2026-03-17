@@ -2,7 +2,7 @@ window.addEventListener('load', function DOMContentLoaded() {
   'use strict';
   document.querySelector('body.loaded').classList.remove('loaded');
 
-  // Открывать окно с информацией о лекторе
+  // Open window with lecturer information
   let lastOpenedLector = null;
   const lecturesList = document.querySelector('.main__lectures-list');
   lecturesList.addEventListener('mousedown', function clickOnLecturesList(e) {
